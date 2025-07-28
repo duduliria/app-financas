@@ -7,11 +7,11 @@ const barraDeStatus = StatusBar.currentHeight
   ? StatusBar.currentHeight + 22
   : 64;
 
-export default function Header() {
+export default function Header({nomeUsuario}) {
   return (
     <View style={styles.container}>
       <View style={styles.conteudo}>
-        <Text style={styles.usuario}>Eduardo de Oliveira</Text>
+        <Text style={styles.usuario}>{nomeUsuario}</Text>
 
         <TouchableOpacity style={styles.botaoUsuario}>
           <Feather name="user" size={27} />
