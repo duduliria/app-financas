@@ -1,20 +1,20 @@
 import { StyleSheet, Text, View } from "react-native";
 
-export default function Balance() {
+export default function Balance({gastos, saldo}) {
   return (
     <View style={styles.container}>
       <View style={styles.item}>
         <Text style={styles.itemTitulo}>Saldo</Text>
 
         <View style={styles.conteudo}>
-          <Text style={styles.balanco}>4000</Text>
+          <Text style={styles.balanco}>{saldo}</Text>
         </View>
       </View>
 
       <View style={styles.item}>
         <Text style={styles.itemTitulo}>Gastos</Text>
         <View style={styles.conteudo}>
-          <Text style={styles.gastos}>4000</Text>
+          <Text style={styles.gastos}>{gastos}</Text>
         </View>
       </View>
     </View>
