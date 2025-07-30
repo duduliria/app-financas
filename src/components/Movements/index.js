@@ -23,7 +23,7 @@ export default function Movements({ dados }) {
         <Text style={styles.conta}>{dados.conta}</Text>
 
         {mostrarValor ? (
-          <Text style={dados.tipo === 1 ? styles.receita : styles.despesas}>
+          <Text style={dados.tipo === 1 ? styles.receitas : styles.despesas}>
             {dados.tipo === 1
               ? `${transformarEmMoeda(dados.valor)}`
               : `-${transformarEmMoeda(dados.valor)}`}
@@ -36,4 +36,49 @@ export default function Movements({ dados }) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginBottom: 24,
+    borderBottomWidth: 0.5,
+    borderBottomColor: "#dadada",
+    marginHorizontal: 10,
+  },
+
+  conteudo: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 2,
+    marginBottom: 8,
+  },
+  data: {
+    color: "#dadada",
+    fontWeight: "bold",
+  },
+
+  conta: {
+    fontWeight: "bold",
+    fontSize: 16,
+    color: "#2976dcff",
+  },
+
+  receitas: {
+    fontSize: 16,
+    color: "#2ecc71",
+    fontWeight: "bold",
+  },
+
+  despesas: {
+    fontSize: 16,
+    color: "#e74c3c",
+    fontWeight: "bold",
+  },
+
+  borrao: {
+    marginTop: 6,
+    width: 80,
+    height: 10,
+    backgroundColor: "#bebbbbff",
+    borderRadius: 8,
+  }
+});

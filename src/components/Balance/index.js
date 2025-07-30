@@ -1,20 +1,44 @@
-import { StyleSheet, Text, View } from "react-native";
+import { useState } from "react";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
-export default function Balance({gastos, saldo}) {
+export default function Balance({ gastos, saldo }) {
+  const [mostrarSaldo, setMostrarSaldo] = useState(false);
+  const [mostrarGasto, setMostrarGasto] = useState(false);
+
+  function visualizarSaldo() {
+    setMostrarSaldo(!mostrarSaldo);
+  }
+  
+  function visualizarGastos() {
+    setMostrarGasto(!mostrarGasto)
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.item}>
         <Text style={styles.itemTitulo}>Saldo</Text>
 
         <View style={styles.conteudo}>
-          <Text style={styles.balanco}>{saldo}</Text>
+          <TouchableOpacity onPress={visualizarSaldo}>
+            {mostrarSaldo ? (
+              <Text style={styles.balanco}>{saldo}</Text>
+            ) : (
+              <Text style={styles.borrao}></Text>
+            )}
+          </TouchableOpacity>
         </View>
       </View>
 
       <View style={styles.item}>
         <Text style={styles.itemTitulo}>Gastos</Text>
         <View style={styles.conteudo}>
-          <Text style={styles.gastos}>{gastos}</Text>
+           <TouchableOpacity onPress={visualizarGastos}>
+            {mostrarGasto ? (
+              <Text style={styles.gastos}>{gastos}</Text>
+            ) : (
+              <Text style={styles.borrao}></Text>
+            )}
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -40,12 +64,12 @@ const styles = StyleSheet.create({
 
   itemTitulo: {
     fontSize: 20,
-    color: "#dadada"
+    color: "#dadada",
   },
 
   conteudo: {
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
   },
 
   balanco: {
@@ -55,6 +79,14 @@ const styles = StyleSheet.create({
 
   gastos: {
     fontSize: 22,
-    color: '#e74c3c'
-  }
+    color: "#e74c3c",
+  },
+
+  borrao: {
+    marginTop: 6,
+    width: 80,
+    height: 10,
+    backgroundColor: "#bebbbbff",
+    borderRadius: 8,
+  },
 });
