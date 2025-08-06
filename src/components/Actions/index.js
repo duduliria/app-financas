@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
-export default function Actions() {
+export default function Actions({ abrirModal }) {
   return (
     <View>
       <ScrollView
@@ -15,7 +15,7 @@ export default function Actions() {
         horizontal={true}
         style={styles.container}
       >
-        <TouchableOpacity style={styles.acaoBotao}>
+        <TouchableOpacity onPress={abrirModal} style={styles.acaoBotao}>
           <View style={styles.areaBotao}>
             <AntDesign name="addfolder" size={26} color={"#000"} />
           </View>

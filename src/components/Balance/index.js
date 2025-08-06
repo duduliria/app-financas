@@ -21,7 +21,7 @@ export default function Balance({ gastos, saldo }) {
         <View style={styles.conteudo}>
           <TouchableOpacity onPress={visualizarSaldo}>
             {mostrarSaldo ? (
-              <Text style={styles.balanco}>{saldo}</Text>
+              <Text style={[styles.balanco, parseFloat(saldo) < 0 && styles.saldoNegativo]}>{saldo}</Text>
             ) : (
               <Text style={styles.borrao}></Text>
             )}
@@ -89,4 +89,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#bebbbbff",
     borderRadius: 8,
   },
+
+  saldoNegativo: {
+    color: "#e74c3c"
+  }
 });

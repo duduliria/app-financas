@@ -21,7 +21,6 @@ export default function Movements({ dados }) {
 
       <View style={styles.conteudo}>
         <Text style={styles.conta}>{dados.conta}</Text>
-
         {mostrarValor ? (
           <Text style={dados.tipo === 1 ? styles.receitas : styles.despesas}>
             {dados.tipo === 1
